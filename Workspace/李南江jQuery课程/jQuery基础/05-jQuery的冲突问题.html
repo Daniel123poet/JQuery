@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05-jQuery的冲突问题</title>
+    <script src="../../src/jquery-1.10.2.js"></script>
+    <script src="../../src/test.js"></script>
+    <script>
+        //1.释放$使用权
+        //注意： 释放代码必须在其他js代码之前，释放之后就不能使用$ 只能用jQuery
+
+        //2.自定义一个访问符
+
+        // jQuery.noConflict();
+        var ok = jQuery.noConflict();
+
+        ok(function () {
+            alert('hello');
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

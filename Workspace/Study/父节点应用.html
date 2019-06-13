@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+          var aA = document.getElementsByTagName('a');
+          for(var i=0; i<aA.length; i++){
+              aA[i].onclick = function () {
+                  this.parentNode.style.display = 'none';
+              };
+          }
+
+        };
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li>aaa<a href="#">隐藏</a></li>
+    <li>bbb<a href="#">隐藏</a></li>
+    <li>ccc<a href="#">隐藏</a></li>
+    <li>ddd<a href="#">隐藏</a></li>
+    <li>eee<a href="#">隐藏</a></li>
+</ul>
+</body>
+</html>

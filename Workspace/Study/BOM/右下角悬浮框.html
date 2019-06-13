@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {width: 150px; height: 200px; background: red; position: absolute; bottom: 0; right: 0;}
+        body {height:2000px;}
+    </style>
+
+    <script>
+        window.onscroll = function () {
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var oDiv = document.getElementById('div1');
+            oDiv.style.top = document.documentElement.clientHeight - oDiv.offsetHeight + scrollTop + 'px';
+
+        };
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

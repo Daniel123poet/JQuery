@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>53-jQuery删除节点相关方法</title>
+    <script src="../../src/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+
+            /*
+            * remove 删除元素自身及子节点及其全部内容
+            * empty 删除元素自身的内容及子节点， 保留自身节点
+            * detach 和remove 作用相同
+            * */
+           //jQuery相关代码
+             $('button').click(function () {
+                 // $('div').remove();
+                 // $('div').empty();
+                 // $('li').detach('.item');
+                 $('li').remove('.item');
+             });
+        });
+    </script>
+</head>
+<body>
+<button>删除节点</button>
+<ul>
+    <li class="item">我是第1个li</li>
+    <li>我是第2个li</li>
+    <li class="item">我是第3个li</li>
+    <li>我是第4个li</li>
+</ul>
+<div>
+    我是div
+    <p>我是段落</p>
+</div>
+</body>
+</html>

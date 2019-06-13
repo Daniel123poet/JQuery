@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var arr1 = new Array(1,42,22,87);
+        var arr2 = new Array(98,12,43,11);
+
+        Array.prototype.sum = function () { //给所有的数组添加sum方法
+            var result = 0;
+            for(i=0; i<this.length; i++){
+                result += this[i];
+            }
+            return result;
+        };
+
+        alert(arr1.sum());
+        alert(arr2.sum());
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

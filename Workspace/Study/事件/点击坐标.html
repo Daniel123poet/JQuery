@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            document.onclick = function (ev) { //火狐需要一个参数
+                // alert(event.clientX + ', ' +  event.clientY);
+                var oEvent = ev || event;
+                alert(oEvent.clientX + ', ' +  oEvent.clientY);
+            };
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

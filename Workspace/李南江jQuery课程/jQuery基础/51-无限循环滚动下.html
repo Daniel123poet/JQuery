@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>50-无限循环滚动下</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 600px;
+            height: 161px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        ul {
+            list-style: none;
+            width: 1800px;
+            height: 161px;
+            background: #ccc;
+        }
+        img {
+            width: 300px;
+            height: 161px;
+        }
+        
+        ul>li {
+            float: left;
+        }
+    </style>
+    <script src="../../src/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+           //jQuery相关代码
+            var offset = 0;
+            var timer = setInterval(function () {
+                offset += -10;
+                if(offset <= -1200){
+                    offset = 0;
+                }
+                $('ul').css('marginLeft', offset);
+            }, 30);
+        });
+    </script>
+</head>
+<body>
+<div>
+    <ul>
+        <li><img src="../../src/img/001.jpg" alt=""></li>
+        <li><img src="../../src/img/002.jpg" alt=""></li>
+        <li><img src="../../src/img/003.jpg" alt=""></li>
+        <li><img src="../../src/img/004.jpg" alt=""></li>
+        <li><img src="../../src/img/001.jpg" alt=""></li>
+        <li><img src="../../src/img/002.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07-jQuery对象</title>
+    <script src="../../src/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            var $div = $('div');
+            console.log($div);
+            /*
+            * 什么是jQuery对象
+            * 是一个伪数组
+            *
+            * 什么是伪数组？
+            * 有0-length属性， 有length属性
+            * */
+
+            var arr = [1, 3, 5];
+            console.log(arr);
+        });
+
+
+    </script>
+</head>
+<body>
+<div>div1</div>
+<div>div2</div>
+<div>div3</div>
+</body>
+</html>

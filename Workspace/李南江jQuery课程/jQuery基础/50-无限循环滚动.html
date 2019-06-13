@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>50-无限循环滚动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 600px;
+            height: 161px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        ul {
+            list-style: none;
+            width: 1800px;
+            height: 161px;
+            background: #000;
+        }
+        img {
+            width: 300px;
+            height: 161px;
+        }
+        
+        ul>li {
+            float: left;
+        }
+    </style>
+    <script src="../../src/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            //jQuery相关代码
+            //1.保存图片偏移位
+            var offset = 0;
+            //2. 让图片滚动
+            var timer;
+            function autoPlay() {
+                timer = setInterval(function () {
+                    offset += -10;
+                    if (offset <= -1200) {
+                        offset = 0;
+                    }
+                    $('ul').css('marginLeft', offset);
+                }, 50);
+            }
+            autoPlay();
+
+            //3.监听li的移入移出事件
+            $('li').hover(function (){
+                //停止滚动
+                clearInterval(timer);
+                //给非当前选中图片添加蒙版
+                $(this).siblings().fadeTo(100, 0.5);
+                //去除当前选中图片的蒙版
+                $(this).fadeTo(100, 1);
+            }, function () {
+                autoPlay();
+                //去除所有的蒙版
+                $('li').fadeTo(100, 1);
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div>
+    <ul>
+        <li><img src="../../src/img/001.jpg" alt=""></li>
+        <li><img src="../../src/img/002.jpg" alt=""></li>
+        <li><img src="../../src/img/003.jpg" alt=""></li>
+        <li><img src="../../src/img/004.jpg" alt=""></li>
+        <li><img src="../../src/img/001.jpg" alt=""></li>
+        <li><img src="../../src/img/002.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+</html>

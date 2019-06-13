@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+
+            var oUl = document.getElementById('ul1');
+            //创建一个文档碎片
+            var oFrag = document.createDocumentFragment();
+            for(var i=0; i<1000; i++){
+                //创建li元素并且放入到文档碎片中
+                var oLi = document.createElement('li');
+                oFrag.appendChild(oLi);
+            }
+            //将文档碎片添加到ul中
+            oUl.appendChild(oFrag);
+
+        };
+
+
+    </script>
+</head>
+<body>
+<ul id="ul1"></ul>
+</body>
+</html>

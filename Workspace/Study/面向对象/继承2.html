@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //方法和属性可以用call实现， 原型可以用for循环实现
+
+        function A (){
+            this.abc = 12;
+        }
+
+        A.prototype.show = function () {
+            alert(this.abc);
+        };
+
+        function B () {
+            A.call(this);
+        }
+
+        // B.prototype = A.prototype;
+        for(var i in A.prototype){
+            B.prototype[i] = A.prototype[i];
+        }
+
+        B.prototype.fn = function () {
+            alert('abc');
+        };
+
+        var obj = new B();
+        // alert(obj.abc);
+        // obj.show();
+        var objA = new A();
+        var objB = new B();
+        objA.fn();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

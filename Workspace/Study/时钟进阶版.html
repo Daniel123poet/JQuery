@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>超酷时钟</title>
+    <style>
+
+        body {
+            background-image: url('../src/clock/images/bg.png');
+
+            background-size: 100% 100%;
+            color: white; font-size: 50px;
+        }
+
+        #div0 { margin-left: 450px; margin-top: 50px; }
+
+        #div1 { text-align: center; margin-top: 200px; }
+
+        #div2, #div3, #div4, #div5, #div6, #div7, #div8, #div9 {
+            margin-left: 10px;
+            float: left;
+        }
+
+        #div10 {
+            text-align: center;
+            margin-top: 150px;
+        }
+    </style>
+    <script>
+
+        //判断当前时间的时，分，秒 是否为两位数，如果不是则在前面补0
+        function toDouble(n){
+            if(n<10){
+                return '0' + n;
+            }
+            else{
+                return '' + n;
+            }
+        }
+
+        //根据当前星期几来给出对应图片的名称
+        function whatDay() {
+            var oDay = new Date().getDay();
+            if(oDay===0){
+                return 'seven';
+            }
+            else if(oDay===1){
+                return 'one';
+            }
+            else if(oDay===2){
+                return 'two';
+            }
+            else if(oDay===3){
+                return 'three';
+            }
+            else if(oDay===4){
+                return 'four';
+            }
+            else if(oDay===5){
+                return 'five';
+            }
+            else{
+                return 'six';
+            }
+        }
+
+        window.onload = function() {
+            //日期，包括星期几
+          function currentDate() {
+              var oDiv2 = document.getElementById('div2');
+              var oDiv4 = document.getElementById('div4');
+              var oDiv6 = document.getElementById('div6');
+              var oDiv9 = document.getElementById('div9');
+
+              var Div2Img = oDiv2.getElementsByTagName('img');
+              var Div4Img = oDiv4.getElementsByTagName('img');
+              var Div6Img = oDiv6.getElementsByTagName('img');
+              var Div9Img = oDiv9.getElementsByTagName('img');
+
+
+              var oDate = new Date();
+
+              var Div2Str = toDouble(oDate.getFullYear())
+              var Div4Str = toDouble((oDate.getMonth()+1));
+              var Div6Str = toDouble(oDate.getDate());
+
+              for(i=0; i<Div2Img.length; i++){
+                  Div2Img[i].src = '../src/clock/images/' + Div2Str.charAt(i) + '.png';
+              }
+              for(i=0; i<Div4Img.length; i++){
+                  Div4Img[i].src = '../src/clock/images/' + Div4Str.charAt(i) + '.png';
+              }
+              for(i=0; i<Div6Img.length; i++){
+                  Div6Img[i].src = '../src/clock/images/' + Div6Str.charAt(i) + '.png';
+              }
+              for(i=0; i<Div9Img.length; i++){
+                  Div9Img[i].src = '../src/clock/images/' + whatDay() + '.png';
+              }
+
+          }
+          //时间
+          function time() {
+              var oDiv10 = document.getElementById('div10');
+              var aImg = oDiv10.getElementsByClassName('num');
+              var oDate = new Date();
+              var str = toDouble(oDate.getHours()) + toDouble(oDate.getMinutes()) + toDouble(oDate.getSeconds());
+              for(var i=0; i<aImg.length; i++){
+                  aImg[i].src = '../src/clock/images/' + str.charAt(i) + '.png';
+              }
+
+          }
+
+          time();
+          setInterval(time, 1000);
+          currentDate();
+        };
+    </script>
+</head>
+<body style="">
+
+<div id="div1" style="">
+    <img src="../src/clock/images/title.png" alt="">
+</div>
+
+<div id="div0">
+
+    <div id="div2" style="">
+        <img src="../src/clock/images/0.png" alt="">
+        <img src="../src/clock/images/0.png" alt="">
+        <img src="../src/clock/images/0.png" alt="">
+        <img src="../src/clock/images/0.png" alt="">
+    </div>
+
+    <div id="div3" style="">
+        <img src="../src/clock/images/year.png" alt="">
+    </div>
+
+    <div id="div4">
+        <img src="../src/clock/images/0.png" alt="">
+        <img src="../src/clock/images/0.png" alt="">
+    </div>
+
+    <div id="div5">
+        <img src="../src/clock/images/month.png" alt="">
+    </div>
+
+    <div id="div6">
+        <img src="../src/clock/images/0.png" alt="">
+        <img src="../src/clock/images/0.png" alt="">
+    </div>
+
+    <div id="div7">
+        <img src="../src/clock/images/seven.png" alt="">
+    </div>
+
+    <div id="div8">
+        <img src="../src/clock/images/week.png" alt="">
+    </div>
+
+    <div id="div9">
+        <img src="../src/clock/images/0.png" alt="">
+    </div>
+</div>
+
+<div id="div10" style="">
+
+    <img class="num" src="../src/clock/images/0.png" alt="">
+    <img class="num" src="../src/clock/images/0.png" alt="">
+    <img src="../src/clock/images/sign.png" alt="">
+    <img class="num" src="../src/clock/images/0.png" alt="">
+    <img class="num" src="../src/clock/images/0.png" alt="">
+    <img src="../src/clock/images/sign.png" alt="">
+    <img class="num" src="../src/clock/images/0.png" alt="">
+    <img class="num" src="../src/clock/images/0.png" alt="">
+</div>
+
+</body>
+</html>

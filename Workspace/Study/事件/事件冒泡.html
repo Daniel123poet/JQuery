@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {padding: 100px; }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body onclick="alert('body');">
+<div style="background: #ccc" onclick="alert(this.style.background);">
+    <div style="background: red" onclick="alert(this.style.background);">
+        <div style="background: green" onclick="alert(this.style.background);"></div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>54-jQuery替换节点相关方法</title>
+    <script src="../../src/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+           //jQuery相关代码
+            $('button').click(function () {
+                //1. 新建一个元素
+                var $h5 = $('<h5>我是标题5</h5>');
+                //2. 替换元素
+                // $('h1').replaceWith($h5);
+
+
+                $h5.replaceAll('h1');
+            });
+        });
+    </script>
+</head>
+<body>
+<button>替换节点</button>
+<h1>我是标题1</h1>
+<h1>我是标题1</h1>
+<p>我是段落</p>
+</body>
+</html>

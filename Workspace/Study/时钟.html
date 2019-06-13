@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //网页版时钟效果
+        function toDouble(n){
+            if(n<10){
+                return '0' + n;
+            }
+            else{
+                return '' + n;
+            }
+        }
+
+        window.onload = function() {
+
+          function currentDate() {
+              var oDiv2 = document.getElementById('div2');
+              var aImg = oDiv2.getElementsByTagName('img');
+              var oDate = new Date();
+              var str = toDouble(oDate.getFullYear()) + toDouble(oDate.getMonth()+1) + toDouble(oDate.getDate());
+              // alert(str);
+              for(i=0; i<aImg.length; i++){
+                  aImg[i].src = '../src/clock/images/' + str.charAt(i) + '.png'
+              }
+
+          }
+          function time() {
+              var oDiv3 = document.getElementById('div3');
+              var aImg = oDiv3.getElementsByTagName('img');
+              var oDate = new Date();
+              var str = toDouble(oDate.getHours()) + toDouble(oDate.getMinutes()) + toDouble(oDate.getSeconds());
+              for(var i=0; i<aImg.length; i++){
+                  aImg[i].src = '../src/clock/images/' + str.charAt(i) + '.png';
+              }
+          }
+          time();
+          setInterval(time, 1000);
+          currentDate();
+
+        };
+    </script>
+</head>
+<body style="background: #000333; color: white; font-size: 50px;">
+<p id="day" style="color:white; font-size: 50px;"></p>
+<div id="div1" style="text-align: center; margin-top: 200px;">
+    <img src="../src/clock/images/title.png" alt="">
+</div>
+<div id="div2" style="text-align: center; margin-top: 50px;">
+    <img src="../src/clock/images/0.png" alt="">
+    <img src="../src/clock/images/0.png" alt="">
+    <img src="../src/clock/images/0.png" alt="">
+    <img src="../src/clock/images/0.png" alt="">年
+    <img src="../src/clock/images/0.png" alt="">
+    <img src="../src/clock/images/0.png" alt="">月
+    <img src="../src/clock/images/0.png" alt="">
+    <img src="../src/clock/images/0.png" alt="">日
+</div>
+<div id="div3" style="text-align: center; margin-top: 50px;">
+
+    <img src="../src/clock/images/0.png" alt="">
+    <img src="../src/clock/images/0.png" alt="">
+    ：
+    <img src="../src/clock/images/0.png" alt="">
+    <img src="../src/clock/images/0.png" alt="">
+    ：
+    <img src="../src/clock/images/0.png" alt="">
+    <img src="../src/clock/images/0.png" alt="">
+</div>
+
+</body>
+</html>

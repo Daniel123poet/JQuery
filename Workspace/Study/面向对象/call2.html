@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function show(a, b){
+            alert('this是:'+ this + '\n a是:' + a + '\n b是:' + b);
+        }
+
+        // show(12, 5);
+        show.call('abc', 12, 5); //将第一个参数作为this
+    </script>
+</head>
+<body>
+
+</body>
+</html>

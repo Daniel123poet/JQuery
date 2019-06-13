@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-JS和jQuery入口函数的区别</title>
+    <script src="../../src/jquery-1.10.2.js"></script>
+    <script>
+        // window.onload = function () {
+        //     var img = document.getElementsByTagName('img')[0];
+        //     console.log(img);
+        //     var width = window.getComputedStyle(img).width;
+        //     console.log("onload", width);
+        // };
+        //
+        // $(document).ready(function () {
+        //     var $img = $("img");
+        //     console.log($img);
+        //     var $width = $img.width();
+        //     console.log("ready", $width);
+        // });
+        // window.onload = function () {
+        //     alert('hello1');
+        // };
+        // window.onload = function () {
+        //     alert('hello2');
+        // };
+
+        /*
+        * 原生JS编写多个入口函数，后面的会覆盖前面的
+        * JQuery多个入口函数，后面不会覆盖前面
+        *
+        * 原生JS和JQuery加载模式不同
+        * 原生JS会等到DOM加载完毕，且图片加载完毕才会执行
+        * JQuery在DOM加载完毕就会执行，不会等图片加载
+        * **/
+
+        $(document).ready(function () {
+           alert('hello1');
+        });
+
+        $(document).ready(function () {
+            alert('hello12');
+        });
+
+
+
+    </script>
+</head>
+<body>
+<img src="https://www.baidu.com/img/bd_logo1.png" alt="">
+</body>
+</html>

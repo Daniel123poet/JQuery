@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 input {background: white;}
+        #div1 input.active {background: yellow;}
+        #div1 div {width: 200px; height: 200px; background: #ccc; display: none;}
+    </style>
+
+    <script>
+
+        window.onload = function () {
+            new TabSwitch('div1');
+        };
+
+        function TabSwitch(id) {
+            var oDiv = document.getElementById(id);
+            this.aDiv = oDiv.getElementsByTagName('div');
+            this.aBtn = oDiv.getElementsByTagName('input');
+
+            for(var i=0; i<this.aBtn.length; i++){
+                this.aBtn[i].index = i;
+                this.aBtn[i].onclick = this.fnClick;
+            }
+        };
+
+        TabSwitch.prototype.fnClick = function () {
+
+            for(var i=0; i<this.aBtn.length; i++){
+                this.aBtn[i].className = '';
+                this.aDiv[i].style.display = 'none';
+            }
+            this.className ='active';
+            this.aDiv[this.index].style.display = 'block';
+}
+    </script>
+</head>
+<body>
+<div id="div1">
+    <input class="active" type="button" value="aaa">
+    <input type="button" value="bbb">
+    <input type="button" value="ccc">
+    <div style="display: block">aaa</div>
+    <div>bbb</div>
+    <div>ccc</div>
+</div>
+</body>
+</html>

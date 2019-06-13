@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function createPerson (name, qq) {
+            var obj = new Object();
+            obj.name = name;
+            obj.qq = qq;
+
+            obj.showName = function () {
+                alert('my name is: ' + name);
+            }
+
+            obj.showQQ = function () {
+                alert('my qq is: ' + qq);
+            }
+            return obj;
+        }
+
+        var obj1 = createPerson('jack', '1242353454');
+        var obj2 = createPerson('rose', '3229110101');
+
+        obj1.showName();
+        obj1.showQQ();
+
+        obj2.showName();
+        obj2.showQQ();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

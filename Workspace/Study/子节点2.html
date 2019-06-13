@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+          var oUl = document.getElementById('ul1');
+
+          //使用children这个属性只包含元素节点，就可以不需要使用nodeType
+          alert(oUl.children.length);
+          for(var i=0; i<oUl.children.length; i++){
+              oUl.children[i].style.background = 'red';
+          }
+        };
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

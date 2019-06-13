@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>18-attr和prop方法练习</title>
+    <script src="../../src/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+           var oTxt = document.getElementsByTagName('input')[0];
+           var oBtn = document.getElementsByTagName('button')[0];
+           oBtn.onclick = function () {
+                var input = oTxt.value;
+                $('img').attr('src', input);
+                // $('img').prop('src', input);
+
+                // https://gss0.bdstatic.com/5bVWsj_p_tVS5dKfpU_Y_D3/res/r/image/2017-09-27/297f5edb1e984613083a2d3cc0c5bb36.png
+           };
+        });
+    </script>
+</head>
+<body>
+<input type="text">
+<button>切换图片</button><br>
+<img src="https://www.baidu.com/img/bd_logo1.png" alt="">
+</body>
+</html>

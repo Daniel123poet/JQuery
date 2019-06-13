@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>55-jQuery复制节点相关方法</title>
+    <script src="../../src/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+           //jQuery相关代码
+            /**
+             * 浅复制和深复制节点的区别：
+             * 浅复制只会复制元素，不复制元素的事件
+             * 深复制既复制元素， 也复制元素的事件
+             */
+
+            $('button').eq(0).click(function () {
+                var $li = $('li:first').clone(false);
+                $('ul').append($li);
+            });
+
+            $('button').eq(1).click(function () {
+                var $li = $('li:first').clone(true);
+                $('ul').append($li);
+            });
+
+            $('li').click(function () {
+                alert($(this).html());
+            })
+        });
+    </script>
+</head>
+<body>
+<button>浅复制节点</button>
+<button>深复制节点</button>
+<ul>
+    <li>我是第1个li</li>
+    <li>我是第2个li</li>
+    <li>我是第3个li</li>
+    <li>我是第4个li</li>
+    <li>我是第5个li</li>
+</ul>
+</body>
+</html>
